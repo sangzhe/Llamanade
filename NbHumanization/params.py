@@ -1,0 +1,6 @@
+ANNOTATION_SCHEME="martin"
+ANNOTATION_DEFINITION="AbM"
+BLAST_EXEC = "/opt/ncbi-blast-2.11.0+-src/c++/ReleaseMT/bin/blastp"
+HUM_AB_PROFILE="/opt/NbModeling/resources/ANARCI_Hum_H.json"
+T20_HUM_FR_BLAST_DB = "/data/BlastDB/FR/FR_hum_blastdb"
+T20_HUM_VH_BLAST_DB = "/data/BlastDB/full/full_hum_blastdb"

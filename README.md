@@ -1,0 +1,9 @@
+# Llamanade: an open-source computational pipeline for robust nanobody humanization 
+
+Zhe Sang,Yufei Xiang, Ivet Bahar and Yi Shi
+
+University of Pittsburgh
+
+## Abstract 
+
+Nanobodies (Nbs) have recently emerged as a promising class of antibody fragments for biomedical and therapeutic applications. Despite having marked physicochemical properties, Nbs are derived from camelids and may require “humanization” to improve translational potentials for clinical trials. Here we have systematically analyzed the sequence and structural properties of Nbs based on NGS (next-generation sequencing) databases and high-resolution structures. Our analysis reveals substantial framework diversities and underscores the key differences between Nbs and human Immunoglobulin G (IgG) antibodies. We identified conserved residues that may contribute to enhanced solubility, structural stability, and antigen-binding, providing insights into Nb humanization. Based on big data analysis, we developed “Llamanade'', a user-friendly, open-source to facilitate rational humanization of Nbs. Using Nb sequence as input, Llamanade provides information on the sequence features, model structures, and optimizes solutions to humanize Nbs. The full analysis for a given Nb takes less than a minute on a local computer. To demonstrate the robustness of this tool, we applied it to successfully humanize a cohort of structurally diverse and highly potent SARS-CoV-2 neutralizing Nbs. Llamanade is freely available and will be easily accessible on a web server to support the development of a rapidly expanding repertoire of therapeutic Nbs into safe and effective trials.
