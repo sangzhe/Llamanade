@@ -8,8 +8,8 @@ from Sequence import NumberedSequence
 from Scheme import NUMBERING,DEFINITIONS
 import params
 
-PDB_PATH="/opt/NbModeling/resources/modeller_data/PDBs"
-BLASTP_DB_PATH = "/opt/NbModeling/resources/modeller_data/Modeller_VH"
+PDB_PATH="/opt/resources/modeller_data/PDBs"
+BLASTP_DB_PATH = "/opt/resources/modeller_data/Modeller_VH"
 
 logging.basicConfig(\
             filename="NbHumanization.log",\

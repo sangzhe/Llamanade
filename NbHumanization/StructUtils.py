@@ -3,7 +3,7 @@ from Bio.PDB.Polypeptide import three_to_one
 from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
 from Annotation import annotate,search_template
-from Modeling import ComparativeModellingParameters,Modeling
+from Modeling import ComparativeModellingParameters,Modeling,NanoNetModeling
 from IOUtils import get_SeqRecord_from_fasta
 import params
 import os
@@ -49,8 +49,26 @@ def extract_heavy_chain_from_structure(pdb_file:str,chain_id:str,dest_dir:str):
     
     return numbered_seq,output_path
 
-def model(file:str,dest_dir:str):
-    """This function generate homology model for the nanobody
+
+def model_by_NanoNet(filename:str,dest_dir:str):
+    """This function generate homology model for the nanobody using NanonNet
+
+    Args:
+        file (str): The fasta file containing nanobody sequence
+        dest_dir (str): The output directory
+    Returns:
+        numbered_seq (NumberedSequence): the numbered sequence object
+        output_path (str):  The absolute path to the modeled structure
+    """ 
+    seqrecord = get_SeqRecord_from_fasta(filename)
+    numbered_seq = annotate(seqrecord,params.ANNOTATION_SCHEME,params.ANNOTATION_DEFINITION,dest_dir)
+    m = NanoNetModeling(dest_dir)
+    m.model(filename)
+    return numbered_seq,os.path.join(dest_dir,m.best_model)
+
+    
+def model_by_Modeller(file:str,dest_dir:str):
+    """This function generate homology model for the nanobody using Modeller
 
     Args:
         file (str): The fasta file containing nanobody sequence

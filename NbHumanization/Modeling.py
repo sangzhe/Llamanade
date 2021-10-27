@@ -8,6 +8,7 @@ import logging
 #log.verbose()
 import os
 import sys
+import params
 
 
 logging.basicConfig(\
@@ -54,7 +55,21 @@ class ComparativeModellingParameters(object):
         return self.target_seq_file_path
     def get_target_align_codes(self):
         return self.target_seq.id
+
+class NanoNetModeling(object):   
+    def __init__(self,task_dir):
+        self.models = None
+        self.best_model = None
+        full_dest_dir = os.path.join(task_dir,"NanoNet")
+        os.mkdir(full_dest_dir)
+        self.task_dir = full_dest_dir
         
+    def model(self,filename):
+        cmd = ["python3",f"{params.NANONET_EXEC}/NanoNet.py","-n",f"{params.NANONET_EXEC}/NanoNet","-s",filename,"-o",self.task_dir,"-p",f'{params.NANONET_EXEC}/pulchra']
+        subprocess.check_call(cmd)
+        
+        self.best_model = os.path.join(self.task_dir,os.listdir(self.task_dir)[0])
+
 
 class Modeling(object):
     def __init__(self,parameters:ComparativeModellingParameters):

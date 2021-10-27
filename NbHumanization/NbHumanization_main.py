@@ -1,7 +1,7 @@
 import argparse
 import shutil
 from humanizer import humanize
-from StructUtils import model,extract_heavy_chain_from_structure
+from StructUtils import model_by_Modeller,model_by_NanoNet,extract_heavy_chain_from_structure
 import os
 import logging
 import traceback
@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--fa","-f",help="sequence file of a nanobody in fasta format")
     parser.add_argument("--pdb","-p",help="structure file of a nanobody in pdb format")
     parser.add_argument("--chain","-c",help="chain of nanobody in structure file")
+    parser.add_argument("--modeling","-m",default="NanoNet",choices=['NanoNet', 'Modeller'],help="structural modeling tools")
 
     args = parser.parse_args()
     do_modeling=False
@@ -29,6 +30,7 @@ def main():
     fa_file = args.fa
     pdb_file = args.pdb
     chain_id = args.chain
+    model_tool = args.modeling
     
 
     dest_dir = create_output_folder()
@@ -37,7 +39,10 @@ def main():
         nb_struct_file=None
 
         if fa_file!=None:
-            numbered_seq,nb_struct_file = model(fa_file,dest_dir)
+            if model_tool=="NanoNet":
+                numbered_seq,nb_struct_file = model_by_NanoNet(fa_file,dest_dir)
+            else:
+                numbered_seq,nb_struct_file = model_by_Modeller(fa_file,dest_dir)
             
         elif pdb_file!= None and chain_id!=None:
             numbered_seq,nb_struct_file  = extract_heavy_chain_from_structure(pdb_file,chain_id,dest_dir)

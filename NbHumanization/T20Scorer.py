@@ -35,7 +35,7 @@ def run_blastp_T20(seq:str,dest_dir:str,blastdb:str):
 
 def parse_blastp(blastp_result:str):
     parsed_T20_result = os.path.join(os.path.dirname(blastp_result),"blastp_processed_result.csv")
-    args = ["/opt/NbModeling/blastp_parser.py","--input",blastp_result,"--out",parsed_T20_result]
+    args = ["/opt/NbHumanization/blastp_parser.py","--input",blastp_result,"--out",parsed_T20_result]
     subprocess.check_call(args)
     return parsed_T20_result
 
