@@ -1,10 +1,10 @@
-from Sequence import NumberedSequence
+from NbHumanization.Sequence import NumberedSequence
 import tempfile
 import os
-import params
+from NbHumanization import params
 import shutil
-from Annotation import annotate
-from IOUtils import get_SeqRecord_from_fasta,create_output_folder
+from NbHumanization.Annotation import annotate
+from NbHumanization.IOUtils import get_SeqRecord_from_fasta,create_output_folder
 import subprocess
 import logging
 from Bio.Seq import Seq
@@ -35,7 +35,7 @@ def run_blastp_T20(seq:str,dest_dir:str,blastdb:str):
 
 def parse_blastp(blastp_result:str):
     parsed_T20_result = os.path.join(os.path.dirname(blastp_result),"blastp_processed_result.csv")
-    args = ["/opt/NbHumanization/blastp_parser.py","--input",blastp_result,"--out",parsed_T20_result]
+    args = [params.LLAMANADE+"/NbHumanization/blastp_parser.py","--input",blastp_result,"--out",parsed_T20_result]
     subprocess.check_call(args)
     return parsed_T20_result
 

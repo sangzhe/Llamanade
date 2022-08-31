@@ -7,5 +7,5 @@ def get_SeqRecord_from_fasta(file:str):
     return seqrecord
 
 def create_output_folder():
-    dirpath = tempfile.mkdtemp()
+    dirpath = tempfile.mkdtemp(prefix="result_")
     return dirpath

@@ -1,8 +1,8 @@
 import numpy as np
 import subprocess
-from Scheme import SCHEMES
-import params
-from Sequence import NumberedSequence
+from NbHumanization.Scheme import SCHEMES
+from NbHumanization import params
+from NbHumanization.Sequence import NumberedSequence
 import os
 import json
 import pandas as pd
@@ -125,9 +125,9 @@ def run_protinter(pdb_file:str):
     ionic_output = os.path.join(dest_dir,f"result_ionic.csv")
     aroaro_output = os.path.join(dest_dir,f"result_aroaro.csv")
     catpi_output = os.path.join(dest_dir,f"result_cationpi.csv")
-    subprocess.check_call(['/opt/protinter/protinter',pdb_file,'-csv','-ionic']) 
-    subprocess.check_call(['/opt/protinter/protinter',pdb_file,'-csv','-catpi']) 
-    subprocess.check_call(['/opt/protinter/protinter',pdb_file,'-csv','-aroaro'])
+    subprocess.check_call([params.PROTINTER_EXEC,pdb_file,'-csv','--ionic'], stdout=subprocess.DEVNULL) 
+    subprocess.check_call([params.PROTINTER_EXEC,pdb_file,'-csv','--catpi'], stdout=subprocess.DEVNULL) 
+    subprocess.check_call([params.PROTINTER_EXEC,pdb_file,'-csv','--aroaro'], stdout=subprocess.DEVNULL)
     logger.info(os.listdir(dest_dir))
     return ionic_output,aroaro_output,catpi_output
 

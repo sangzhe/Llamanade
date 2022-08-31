@@ -2,10 +2,10 @@ from prody import parsePDB,writePDB
 from Bio.PDB.Polypeptide import three_to_one 
 from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
-from Annotation import annotate,search_template
-from Modeling import ComparativeModellingParameters,Modeling,NanoNetModeling
-from IOUtils import get_SeqRecord_from_fasta
-import params
+from NbHumanization.Annotation import annotate,search_template
+from NbHumanization.Modeling import ComparativeModellingParameters,Modeling,NanoNetModeling
+from NbHumanization.IOUtils import get_SeqRecord_from_fasta
+from NbHumanization import params
 import os
 import logging
 

@@ -5,7 +5,7 @@ from collections import defaultdict
 import numpy as np
 import re
 import os
-from Scheme import SCHEMES,NUMBERING
+from NbHumanization.Scheme import SCHEMES,NUMBERING
 
 class NumberedSequence(object):
     def __init__(self, seq:str,id:str):

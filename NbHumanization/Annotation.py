@@ -4,12 +4,12 @@ import os
 import sys
 import logging
 from Bio.SeqRecord import SeqRecord
-from Sequence import NumberedSequence
-from Scheme import NUMBERING,DEFINITIONS
-import params
+from NbHumanization.Sequence import NumberedSequence
+from NbHumanization.Scheme import NUMBERING,DEFINITIONS
+from NbHumanization import params
 
-PDB_PATH="/opt/resources/modeller_data/PDBs"
-BLASTP_DB_PATH = "/opt/resources/modeller_data/Modeller_VH"
+PDB_PATH=params.LLAMANADE+"/resources/modeller_data/PDBs"
+BLASTP_DB_PATH = params.LLAMANADE+"/resources/modeller_data/Modeller_VH"
 
 logging.basicConfig(\
             filename="NbHumanization.log",\

@@ -1,5 +1,5 @@
 from modeller import *
-from Sequence import NumberedSequence
+from NbHumanization.Sequence import NumberedSequence
 from modeller.automodel import *
 from modeller.parallel import *
 from modeller import soap_protein_od
@@ -8,7 +8,7 @@ import logging
 #log.verbose()
 import os
 import sys
-import params
+from NbHumanization import params
 
 
 logging.basicConfig(\
@@ -65,10 +65,11 @@ class NanoNetModeling(object):
         self.task_dir = full_dest_dir
         
     def model(self,filename):
-        cmd = ["python3",f"{params.NANONET_EXEC}/NanoNet.py","-n",f"{params.NANONET_EXEC}/NanoNet","-s",filename,"-o",self.task_dir,"-p",f'{params.NANONET_EXEC}/pulchra']
+        cmd = ["python3",f"{params.NANONET_EXEC}/NanoNet.py","-n",f"{params.NANONET_EXEC}/NanoNet","-s",filename,"-o",self.task_dir,"-p",f'{params.PULCHRA_EXEC}',"-r"]
+        logger.info(" ".join(cmd))
         subprocess.check_call(cmd)
         
-        self.best_model = os.path.join(self.task_dir,os.listdir(self.task_dir)[0])
+        self.best_model = os.path.join(self.task_dir,"nanonet_ca.rebuilt.pdb")
 
 
 class Modeling(object):
