@@ -1,6 +1,6 @@
-Server is now avaialble at [llamanade.app](https://www.llamande.app). 
+# Server is now avaialble at [llamanade.app](https://www.llamande.app). 
 
-Send a request to zhe[dot]sang[at]icahn[dot]mssm[dot]edu
+Send a request to zhe[dot]sang[at]icahn[dot]mssm[dot]edu if you encounter any difficulty.
 
 
 
