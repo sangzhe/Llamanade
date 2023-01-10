@@ -1,4 +1,4 @@
-## Server is now avaialble at [llamande.app](http://www.llamanade.app)
+## Server is now avaialble at [llamande.app](http://www.llamanade.app or http://35.208.211.136 if domain cannot be resolved)
 
 Send a request to zhe[dot]sang[at]icahn[dot]mssm[dot]edu if you encounter any difficulty.
 
